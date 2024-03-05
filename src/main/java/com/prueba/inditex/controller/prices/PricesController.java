@@ -1,10 +1,13 @@
 package com.prueba.inditex.controller.prices;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -19,9 +22,15 @@ public class PricesController {
 	private PricesService pricesService;
 	
 	@GetMapping("/all")
-	public @ResponseBody List<Prices> obtenerTodos() {
+	public @ResponseBody List<Prices> getAllPrices() {
 		return pricesService.getAll();
 	}
 	
-
+	@GetMapping("/getPrice")
+	public @ResponseBody Prices getPriceByProductAndBrandAndDate(@RequestParam(name = "productID") Integer productID,
+			@RequestParam(name = "brandID") Integer brandID,
+			@RequestParam(name = "applyAt") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) 
+				LocalDateTime applyAt) {
+		return pricesService.getAll().get(0);
+	}
 }
