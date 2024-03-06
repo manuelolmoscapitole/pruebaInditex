@@ -2,7 +2,6 @@ package com.prueba.inditex.controller.prices;
 
 import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -28,7 +27,7 @@ public class PricesController {
 	}
 	
 	@GetMapping("/getPrice")
-	public @ResponseBody Optional<Prices> getPriceByProductAndBrandAndDate(@RequestParam(name = "productID") Integer productId,
+	public @ResponseBody Prices getPriceByProductAndBrandAndDate(@RequestParam(name = "productID") Integer productId,
 			@RequestParam(name = "brandID") Integer brandId,
 			@RequestParam(name = "applyAt") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime applyAt) {
 		
