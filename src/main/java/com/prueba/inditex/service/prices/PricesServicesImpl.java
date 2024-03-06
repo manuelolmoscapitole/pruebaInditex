@@ -27,10 +27,11 @@ public class PricesServicesImpl implements PricesService {
 		List<Prices> list = pricesRepository.findByProductIdAndBrandIdOrderByPriorityDesc(productId, brandId);
 		
 		// Filter the list of prices using the apply date and return only the highest priority
-		Prices prices = list.stream().filter(price -> (price.getStartDate().isBefore(applyAt) || price.getStartDate().isEqual(applyAt)) && 
-				(price.getEndDate().isAfter(applyAt) || price.getEndDate().isEqual(applyAt))).findFirst().orElse(new Prices());
+		Prices price = list.stream().filter(p -> (p.getStartDate().isBefore(applyAt) || p.getStartDate().isEqual(applyAt)) && 
+				(p.getEndDate().isAfter(applyAt) || p.getEndDate().isEqual(applyAt))).findFirst().orElse(Prices.builder().build());
 		
-		return prices;
+		// Return the price or an empty object if not exists
+		return price;
 	}
 	
 }
