@@ -31,7 +31,7 @@ public class PricesController {
 			@RequestParam(name = "brandID") Integer brandId,
 			@RequestParam(name = "applyAt") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime applyAt) {
 		
-		return pricesService.getPricesByProductIdAndBrandId(productId, brandId, applyAt);
+		return pricesService.getPricesByProductIdAndBrandIdForAGivenDate(productId, brandId, applyAt);
 	
 	}
 }

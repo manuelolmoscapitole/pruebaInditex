@@ -11,6 +11,6 @@ import com.prueba.inditex.entity.prices.Prices;
 public interface PricesRepository extends JpaRepository<Prices, Integer>{
 
 	// Get the prices filtered by productId and brandId ordered by Priority (high priority first)
-	List<Prices> findByProductIdAndBrandIdOrderByPriorityDesc(Integer productId, Integer brandId);
+	public List<Prices> findByProductIdAndBrandIdOrderByPriorityDesc(Integer productId, Integer brandId);
 
 }

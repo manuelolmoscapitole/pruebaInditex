@@ -22,7 +22,7 @@ public class PricesServicesImpl implements PricesService {
 	}
 
 	@Override
-	public Prices getPricesByProductIdAndBrandId(Integer productId, Integer brandId, LocalDateTime applyAt) {
+	public Prices getPricesByProductIdAndBrandIdForAGivenDate(Integer productId, Integer brandId, LocalDateTime applyAt) {
 		
 		List<Prices> list = pricesRepository.findByProductIdAndBrandIdOrderByPriorityDesc(productId, brandId);
 		

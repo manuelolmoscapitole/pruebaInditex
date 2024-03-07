@@ -9,5 +9,5 @@ public interface PricesService {
 
 	List<Prices> getAll();
 	
-	Prices getPricesByProductIdAndBrandId(Integer productId, Integer brandId, LocalDateTime applyAt);
+	Prices getPricesByProductIdAndBrandIdForAGivenDate(Integer productId, Integer brandId, LocalDateTime applyAt);
 }
